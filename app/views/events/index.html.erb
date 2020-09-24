@@ -1,5 +1,5 @@
 <h1>List of all events</h1>
 
 <% @events.each do |event| %>
-  <p><%= event %></p>
+  <p><%= link_to event.description, event_path(event.id) %></p>
 <% end %>
