@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:current_user_id] = @user.id
-      redirect_to user_path(@user.id)
+      redirect_to root_path
     else
       render :new
     end
