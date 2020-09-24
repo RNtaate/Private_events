@@ -1,1 +1,6 @@
 <h1>Welcome <%= @user.name %> </h1>
+
+<% @created_events.each do |event| %>
+<p><%= event.description %></p>
+<small>Event date: <%= event.date %></small>
+<% end %>
