@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user
       session[:current_user_id] = @user.id
-      redirect_to user_path(session[:current_user_id])
+      redirect_to root_path
     else
       redirect_to :new_session
     end
@@ -12,5 +12,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:current_user_id] = nil
+    redirect_to new_session_path
   end
 end
