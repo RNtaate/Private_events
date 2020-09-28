@@ -12,8 +12,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
-    redirect_to event_path(@event.id)
+    if signed_in?
+      @event = current_user.created_events.build(event_params)
+      @event.save
+      redirect_to root_path
+    end
   end
 
   private
