@@ -1,6 +1,5 @@
 <h1>Welcome <%= @user.name %> </h1>
 
-<% @created_events.each do |event| %>
-<p><%= event.description %></p>
-<small>Event date: <%= event.date %></small>
+<% @user.attended_events.each do |event|%>
+  <%= link_to event.description, event_path(event.id) %><br>
 <% end %>
