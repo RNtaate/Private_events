@@ -1,5 +1,13 @@
 <h1>Welcome <%= @user.name %> </h1>
 
-<% @user.attended_events.each do |event|%>
+<h3>Previously attended events</h3>
+<% @user.attended_events.where("date < ?", Date.today).each do |event|%>
   <%= link_to event.description, event_path(event.id) %><br>
 <% end %>
+
+<h3>Upcoming events</h3>
+<% @user.attended_events.where("date >= ?", Date.today).each do |event|%>
+  <%= link_to event.description, event_path(event.id) %><br>
+<% end %>
+<br>
+<%= link_to "Back to the Homepage", root_path %>
