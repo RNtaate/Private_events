@@ -2,4 +2,11 @@
 <p><i>Event Organizer : <%= @event.creator.name%></i></p>
 <p><%= @event.description %></p>
 <small>Event date: <%= @event.date%></small>
+
+<hr>
+  <h3>People Joining The Event</h3>
+  <% @event.attendees.each do |attendee|%>
+    <p><%=attendee.name%></p>
+  <% end %>
+<hr>
 <p><%= link_to 'BACK', root_path%></p>
