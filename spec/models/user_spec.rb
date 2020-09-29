@@ -27,4 +27,26 @@ RSpec.describe User, type: :model do
       expect(user2.save).not_to be true
     end
   end
+
+  context "associations between user and event model" do
+    it "user can create many events" do
+      u = User.create(name: 'Ironman')
+      event1 = u.created_events.create(description: 'Big party', date: Date.today+5)
+      event2 = u.created_events.create(description: 'Huge party', date: Date.today+15)
+      expect(Event.first.description).to eql('Big party')
+    end
+  end
+
+  context "associations between user and event_attendance model" do
+    it 'user can have many attended_ events' do
+      organizer = User.create(name: 'Thor')
+      event1 = Event.create(description: 'Big party', date: Date.today+5, creator_id: organizer.id)
+      event2 = Event.create(description: 'Huge party', date: Date.today+15, creator_id: organizer.id)
+      u = User.create(name: 'Ironman')
+      u.attended_events << event1
+      u.attended_events << event2
+      expect(u.attended_events.pluck(:description)).to eql(['Big party', 'Huge party'])
+    end
+
+  end
 end
