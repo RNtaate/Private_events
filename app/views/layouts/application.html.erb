@@ -12,19 +12,11 @@
   <body>
 
   <nav>
-    <%if signed_in? %>
-      <span><%= current_user.name%></span>
-      <%= link_to "Create Event", new_event_path%>
-      <%= link_to "Show my Invitations", user_path(current_user.id)%>
-      <span><%= link_to "log out", new_session_path, method: :delete, data: {confirm: "Are you sure you want to exit?"}%></span>
-    <% else %>
-      <span><%= link_to "sign in", new_session_path%></span>
-    <%end%>
+    <%= render show_if_signedin('layouts/sign_in_nav', 'layouts/sign_out_nav')%>
   </nav>
   <hr>
-  
 
-    <%= yield %>
+  <%= yield %>
 
   </body>
 </html>
