@@ -5,5 +5,7 @@ Event Description:<br>
 <%= f.text_area(:description, size: '50x10', placeholder: "Write event description here...") %><br>
 <br>Date: <br> <%= f.date_field :date %><br>
 <br>
+<small><i>*Hold down 'ctrl' button to select multiple attendees*</i></small><br>
+<%= render 'event_attendances/form'%>
 <%= f.submit %>
 <% end %>
