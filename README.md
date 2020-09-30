@@ -1,5 +1,7 @@
 # Private Events
 
+![Linters](https://github.com/RNtaate/Private_events/workflows/Linters/badge.svg)   ![Tests](https://github.com/RNtaate/Private_events/workflows/Tests/badge.svg)
+
 ## Project Description
 
 This project involves building a lighter version of [eventbrites](https://www.eventbrite.com/) to demonstrate the concept of Associations in Ruby on Rails.
