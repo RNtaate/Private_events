@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
   describe 'GET new' do
-    it "should render a create new User page" do
+    it 'should render a create new User page' do
       get '/users/new'
       expect(response).to be_successful
     end
   end
 
   describe 'GET show' do
-    it "should show all previously attended and upcoming events" do
+    it 'should show all previously attended and upcoming events' do
       creator1 = User.create(name: 'Ironman')
       creator2 = User.create(name: 'Thor')
       creator3 = User.create(name: 'Hulk')

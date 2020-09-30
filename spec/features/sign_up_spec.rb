@@ -8,4 +8,4 @@ describe 'the signup process', type: :feature do
     click_button 'Create User'
     expect(current_path).to eql(root_path)
   end
-end 
+end

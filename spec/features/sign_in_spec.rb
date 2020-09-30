@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'the signin process', type: :feature do
-  
   before :each do
     User.create(name: 'User1')
   end
@@ -12,4 +11,4 @@ describe 'the signin process', type: :feature do
     click_button 'log in'
     expect(current_path).to eql(root_path)
   end
-end 
+end
