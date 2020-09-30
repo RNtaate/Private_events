@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate!, only: %i[new create show]
+
   def index
     @events = Event.all
   end
@@ -12,8 +14,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    return unless signed_in?
-
     @event = current_user.created_events.build(event_params)
     @attendee = params[:event_attendance][:attendee_id]
     @event.save
@@ -32,5 +32,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:description, :date)
+  end
+
+  def authenticate!
+    redirect_to new_session_path unless signed_in?
   end
 end
