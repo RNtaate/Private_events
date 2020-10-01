@@ -1,1 +1,1 @@
-<%= collection_select(:event_attendance, :attendee_id, User.all, :id, :name, {}, { multiple: true } ) %><br>
+<%= collection_select(:event_attendance, :attendee_id, User.all, :id, :name, {}, { multiple: true, size: 3 })%><br><br>
