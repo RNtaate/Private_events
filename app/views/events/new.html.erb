@@ -1,0 +1,11 @@
+<h1>Create an event</h1>
+
+<%= form_for(@event) do |f| %>
+Event Description:<br> 
+<%= f.text_area(:description, size: '50x10', placeholder: "Write event description here...") %><br>
+<br>Date: <br> <%= f.date_field :date %><br>
+<br>
+<small><i>*Hold down 'ctrl' button to select multiple attendees*</i></small><br>
+<%= render 'event_attendances/form'%>
+<%= f.submit %>
+<% end %>

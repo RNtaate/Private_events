@@ -1,0 +1,19 @@
+<h1>Welcome <%= @user.name %> </h1>
+
+<h3>Your Created Events</h3>
+<% @created_events.each do |event| %>
+ <%= link_to event.description, event_path(event.id) %><br>
+<% end %>
+<br>
+
+<h3>Previously attended events</h3>
+<% @past.each do |event|%>
+  <%= link_to event.description, event_path(event.id) %><br>
+<% end %>
+
+<h3>Upcoming events</h3>
+<% @upcoming.each do |event|%>
+  <%= link_to event.description, event_path(event.id) %><br>
+<% end %>
+<br>
+<%= link_to "Back to the Homepage", root_path %>
