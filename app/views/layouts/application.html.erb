@@ -10,13 +10,14 @@
   </head>
 
   <body>
-
-  <nav>
-    <%= render show_if_signedin('layouts/sign_in_nav', 'layouts/sign_out_nav')%>
-  </nav>
-  <hr>
-
-  <%= yield %>
+  <div class="holder">
+    <nav>
+      <h3><%= link_to 'Event Masters', root_path, class: 'company'%></h3>
+      <%= render show_if_signedin('layouts/sign_in_nav', 'layouts/sign_out_nav')%>
+    </nav>
+    <hr>
+      <%= yield %>
+  </div>
 
   </body>
 </html>
