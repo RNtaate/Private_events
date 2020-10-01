@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'the signup process', type: :feature do
+RSpec.describe 'the signup process', type: :feature do
   it 'signs up user' do
     visit '/events'
     click_link 'sign up'

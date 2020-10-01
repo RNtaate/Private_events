@@ -1,14 +1,15 @@
 require 'rails_helper'
 
-describe 'create new event process', type: :feature do
+RSpec.describe 'create new event process', type: :feature do
   before :each do
-    User.create(name: 'User1')
-    User.create(name: 'User2')
+    @user1 = User.create(name: 'User1')
+    @user2 = User.create(name: 'User2')
   end
+
   it 'creates an event' do
     visit '/events'
     click_link 'sign in'
-    fill_in 'name', with: 'User1'
+    fill_in 'name', with: @user1.name
     click_button 'log in'
     expect(current_path).to eql(root_path)
     click_link 'Create Event'
@@ -19,6 +20,6 @@ describe 'create new event process', type: :feature do
     click_button 'Create Event'
     expect(current_path).to eq(root_path)
     visit '/events/1'
-    expect(page).to have_content('User2')
+    expect(page).to have_content(@user2.name)
   end
 end

@@ -1,13 +1,14 @@
 require 'rails_helper'
 
-describe 'the signin process', type: :feature do
+RSpec.describe 'the signin process', type: :feature do
   before :each do
-    User.create(name: 'User1')
+    @user1 = User.create(name: 'User1')
   end
+
   it 'signs in user' do
     visit '/events'
     click_link 'sign in'
-    fill_in 'name', with: 'User1'
+    fill_in 'name', with: @user1.name
     click_button 'log in'
     expect(current_path).to eql(root_path)
   end
