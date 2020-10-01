@@ -1,0 +1,20 @@
+<h1>Edit event</h1>
+
+<%= form_for(@event) do |f| %>
+Event Description:<br> 
+<%= f.text_area(:description, size: '50x10', placeholder: "Write event description here...") %><br>
+<br>Date: <br> <%= f.date_field :date %><br>
+<br>
+
+<h4>Invited Guests</h4>
+<% @event.attendees.each do |attendee| %>
+  <span><%=  attendee.name %>,</span>
+<% end %>
+<br>
+<br>
+<small><i>*Hold down 'ctrl' button to select multiple attendees*</i></small><br>
+<%= render 'event_attendances/form'%>
+
+
+<%= f.submit %>
+<% end %>
