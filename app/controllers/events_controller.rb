@@ -28,6 +28,25 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @attendee = params[:event_attendance][:attendee_id]
+    @event.update(event_params)
+
+    @attendee.each do |x|
+      unless x.empty?
+        @user = User.find(x)
+        @event.attendees << @user unless @event.attendees.include?(@user)
+      end
+    end
+
+    redirect_to root_path
+  end
+
   private
 
   def event_params
