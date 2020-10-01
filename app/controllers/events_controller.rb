@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate!, only: %i[new create show]
+  before_action :authenticate!, except: %i[index]
 
   def index
     @events = Event.all
