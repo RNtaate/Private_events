@@ -1,6 +1,6 @@
 # Private Events
 
-![Linters](https://github.com/RNtaate/Private_events/workflows/Linters/badge.svg)   ![Tests](https://github.com/RNtaate/Private_events/workflows/Tests/badge.svg)
+![Linters](https://github.com/RNtaate/Private_events/workflows/Linters/badge.svg)
 
 ## Project Description
 
